@@ -18,12 +18,12 @@ public class UserController {
 
     @RequestMapping(value = "/user/{userId}", method = RequestMethod.GET)
     @ResponseBody
-    public String getTokenOnlyFromDB(@PathVariable(value = "userId")Long userId){
+    public String getTokenOnlyFromDB(@PathVariable(value = "userId") Long userId) {
         String name = userService.findUserNameById(userId);
-        if(name!=null){
-            return name;
-        }else{
-            return "no this user";
+        if (name != null) {
+            return "{\"data\":\"" + name + "\"}";
+        } else {
+            return "{\"data\":\"" + "no user" + "\"}";
         }
     }
 }
