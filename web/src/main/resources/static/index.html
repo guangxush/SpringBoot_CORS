@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+</head>
+<body>
+<h4>用户信息查询</h4>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        alert("ready!");
+        $("#btn").click(function(){
+            alert("click");
+            var user_id = $("#user_id").text();
+            alert(user_id);
+            searchname(user_id);
+        });
+    });
+
+    function searchname(user_id) {
+        var url = "http://localhost:8080/user/1" + user_id;
+        $.ajax({
+            url: url,
+            type: "get",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function (result) {
+                alert(result);
+                $("#name").val(result).button("refresh");
+            },
+            error: function (textStatus) {
+                $("#name").val("query failed!").button("refresh");
+            },
+        });
+    }
+</script>
+<div>
+    <div class="form-group">
+        <label class="col-sm-2 control-label">用户id</label>
+        <div class="col-sm-10">
+            <input type="text" class="form-control" id="user_id" placeholder="请输入id">
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <button id="btn" class="btn btn-default">查询</button>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+            <label id="name" class="btn btn-default">用户姓名</label>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
