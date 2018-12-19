@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
  * @author guangxush
  */
 @RestController
+@RequestMapping("/open")
 public class UserController {
 
     @Autowired
