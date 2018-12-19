@@ -12,7 +12,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class CorsConfig implements WebMvcConfigurer {
 
     /**
-     * H5页面跨域访问Controller过滤
+     * 页面跨域访问Controller过滤
      *
      * @return
      */
