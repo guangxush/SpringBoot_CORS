@@ -1,7 +1,7 @@
 package com.shgx.cors.config;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 /**
  * 跨域访问设置
@@ -9,7 +9,7 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
  * @author guangxush
  */
 @Configuration
-public class CorsConfig extends WebMvcConfigurerAdapter {
+public class CorsConfig implements WebMvcConfigurer {
 
     /**
      * H5页面跨域访问Controller过滤
@@ -18,7 +18,10 @@ public class CorsConfig extends WebMvcConfigurerAdapter {
      */
     @Override
     public void addCorsMappings(CorsRegistry registry) {
+        WebMvcConfigurer.super.addCorsMappings(registry);
         registry.addMapping("/**")
+                .allowedHeaders("*")
+                .allowedMethods("POST","GET")
                 .allowedOrigins("*");
     }
 }
