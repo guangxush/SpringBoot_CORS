@@ -15,7 +15,7 @@
         $(document).ready(function(){
             $("#btn").click(function(){
                 var user_id = $("#user_id").val();
-                var url = "http://localhost:8080/open/user/" + user_id;
+                var url = "http://localhost:8080/operation/open/user/" + user_id;
                 reqs(url);
             });
 
@@ -41,7 +41,7 @@
             });
 
             $("#btn2").click(function () {
-                $.get("http://localhost:8080/another/hello",function(data,status){
+                $.get("http://localhost:8080/operation/another/hello",function(data,status){
                     $("#test2").text("数据：" + data + "\n状态：" + status);
                 });
             });
