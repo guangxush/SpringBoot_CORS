@@ -36,7 +36,7 @@
 
             $("#btn1").click(function () {
                 $.get("http://localhost:8081/hello",function(data,status){
-                    $("#test").text("数据：" + data + "\n状态：" + status);
+                    $("#test1").text("数据：" + data + "\n状态：" + status);
                 });
             });
 
@@ -72,7 +72,7 @@
         </div>
         <div class="col-sm-offset-2 col-sm-10">
             <label class="btn btn-default">本地接口请求结果:</label>
-            <label id="test" class="btn btn-default"></label>
+            <label id="test1" class="btn btn-default"></label>
         </div>
     </div>
 
