@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+
+spring:
+  resources:
+    static-locations: classpath:/
+
+
+url:
+  user: http://localhost:8080/operation/open/user_info/

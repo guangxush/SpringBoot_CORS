@@ -1,6 +1,7 @@
 package com.shgx.cors.service;
 
 import com.shgx.cors.CorsApplication;
+import com.shgx.cors.model.User;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -16,9 +17,16 @@ public class UserServiceImplTest {
     UserService userService;
 
     @Test
-    public void findUserByIdTest(){
+    public void findUserNameByIdTest(){
         String name = userService.findUserNameById(1L);
         System.out.println(name);
         Assert.assertNotNull(name);
+    }
+
+    @Test
+    public void findUserByIdTest(){
+        Long uid = 1L;
+        User user = userService.findUserById(uid);
+        Assert.assertEquals(uid, user.getId());
     }
 }
