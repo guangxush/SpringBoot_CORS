@@ -67,6 +67,7 @@ public class CorsConfig implements WebMvcConfigurer {
 
 ```
 此时再次进行查询数据获取成功：
+
 ![添加跨域访问配置并成功返回cors中信息.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors5.png)
 
 ### 部分接口跨域访问
@@ -104,6 +105,7 @@ public class CorsConfig implements WebMvcConfigurer {
 - 外部“查询”访问成功
 - 本地“测试”访问成功
 - 外部“测试”访问失败
+
 ![跨域访问开放部分接口.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors7.png)
 
 ### 配置需要注意的地方
