@@ -104,11 +104,13 @@ public class CorsConfig implements WebMvcConfigurer {
 - 外部“查询”访问成功
 - 本地“测试”访问成功
 - 外部“测试”访问失败
-![跨域访问开放部分接口.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors6.png)
+![跨域访问开放部分接口.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors7.png)
 
 ### 配置需要注意的地方
  如果在[application.properties](https://github.com/guangxush/SpringBoot_CORS/blob/master/cors/src/main/resources/application.properties "application.properties")中已经配置了访问路由，如下图所示：
-![访问路由配置.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors7.png)
+ 
+![访问路由配置.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors6.png)
+
 请不要在跨域访问的配置文件[CorsConfig.java](https://github.com/guangxush/SpringBoot_CORS/blob/master/cors/src/main/java/com/shgx/cors/config/CorsConfig.java "CorsConfig.java")再次中添加该路由（如下图所示），否则会导致匹配失败的情况
 ```java
 @Configuration
