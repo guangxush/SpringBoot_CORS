@@ -17,12 +17,12 @@ CORS是一个W3C标准，全称是"跨域资源共享"（Cross-origin resource s
 ### 跨域访问介绍
 
 举个例子：假设虚假网站中存在一个form表单，用户填写之后可以根据真实的路由向真实网站请求数据，真实网站接收到用户请求之后返回所需数据，这时候如果虚假网站可以直接接收的话，可以把请求结果保存下来，从而窃取用户的信息。
-![跨域访问限制.png](https://upload-images.jianshu.io/upload_images/7632302-39030af48631cb40.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![跨域访问限制.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors1.png)
 
 #### 官方形象化解释：
 ajax或者iframe指向的地址中，二级域名、端口、协议必须与主页面完全相同，否则就算跨域
 
-![跨域访问原理.png](https://upload-images.jianshu.io/upload_images/7632302-04537925f4484b52.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![跨域访问原理.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors2.png)
 
 ### 需求介绍
 
@@ -30,13 +30,14 @@ ajax或者iframe指向的地址中，二级域名、端口、协议必须与主�
 
 该[项目](https://github.com/guangxush/SpringBoot_CORS
 )中（里面的具体需求不在描述,，可自行git查看）下面有多个Module服务，cors用于处理用户的信息，web模块用于展示用户的信息（为了举例子，故意分开写），这时web(8080端口)需要用到cors（8081端口）下面请求用户数据的接口，但是由于端口号不一致，即使在同一个域名下也无法正常访问
-![项目框架.png](https://upload-images.jianshu.io/upload_images/7632302-3fc2e11463056c09.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
-![7632302-b196665beb89b6bf.png](https://upload-images.jianshu.io/upload_images/7632302-c1cf0a71b9d88951.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![项目框架.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors3.png)
+![7632302-b196665beb89b6bf.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors4.png)
 
 直接输入id并点击查询，请求会被拦截：
 
 浏览器提示index.html请求cors用户信息报错：
-![浏览器对请求拦截.png](https://upload-images.jianshu.io/upload_images/7632302-b1b8cb2830a1cd14.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+
+![浏览器对请求拦截.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors5.png)
 
 
 ### 解决方案
@@ -64,7 +65,7 @@ public class CorsConfig implements WebMvcConfigurer {
 
 ```
 此时再次进行查询数据获取成功：
-![添加跨域访问配置并成功返回cors中信息.png](https://upload-images.jianshu.io/upload_images/7632302-b196665beb89b6bf.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![添加跨域访问配置并成功返回cors中信息.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors6.png)
 
 ### 部分接口跨域访问
 
@@ -105,7 +106,7 @@ public class CorsConfig implements WebMvcConfigurer {
 
 ### 配置需要注意的地方
  如果在[application.properties](https://github.com/guangxush/SpringBoot_CORS/blob/master/cors/src/main/resources/application.properties "application.properties")中已经配置了访问路由，如下图所示：
-![访问路由配置.png](https://upload-images.jianshu.io/upload_images/7632302-d06506529ee607e1.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![访问路由配置.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors1.png)
 请不要在跨域访问的配置文件[CorsConfig.java](https://github.com/guangxush/SpringBoot_CORS/blob/master/cors/src/main/java/com/shgx/cors/config/CorsConfig.java "CorsConfig.java")再次中添加该路由（如下图所示），否则会导致匹配失败的情况
 ```java
 @Configuration
