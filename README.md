@@ -30,14 +30,16 @@ ajax或者iframe指向的地址中，二级域名、端口、协议必须与主�
 
 该[项目](https://github.com/guangxush/SpringBoot_CORS
 )中（里面的具体需求不在描述,，可自行git查看）下面有多个Module服务，cors用于处理用户的信息，web模块用于展示用户的信息（为了举例子，故意分开写），这时web(8080端口)需要用到cors（8081端口）下面请求用户数据的接口，但是由于端口号不一致，即使在同一个域名下也无法正常访问
+
 ![项目框架.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors3.png)
+
 ![7632302-b196665beb89b6bf.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors4.png)
 
 直接输入id并点击查询，请求会被拦截：
 
 浏览器提示index.html请求cors用户信息报错：
 
-![浏览器对请求拦截.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors5.png)
+![浏览器对请求拦截.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors8.png)
 
 
 ### 解决方案
@@ -65,7 +67,7 @@ public class CorsConfig implements WebMvcConfigurer {
 
 ```
 此时再次进行查询数据获取成功：
-![添加跨域访问配置并成功返回cors中信息.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors6.png)
+![添加跨域访问配置并成功返回cors中信息.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors5.png)
 
 ### 部分接口跨域访问
 
@@ -106,7 +108,7 @@ public class CorsConfig implements WebMvcConfigurer {
 
 ### 配置需要注意的地方
  如果在[application.properties](https://github.com/guangxush/SpringBoot_CORS/blob/master/cors/src/main/resources/application.properties "application.properties")中已经配置了访问路由，如下图所示：
-![访问路由配置.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors6.png)
+![访问路由配置.png](https://github.com/guangxush/iTechHeart/blob/master/image/CORS/cors7.png)
 请不要在跨域访问的配置文件[CorsConfig.java](https://github.com/guangxush/SpringBoot_CORS/blob/master/cors/src/main/java/com/shgx/cors/config/CorsConfig.java "CorsConfig.java")再次中添加该路由（如下图所示），否则会导致匹配失败的情况
 ```java
 @Configuration
